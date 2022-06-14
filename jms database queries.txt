@@ -1,0 +1,50 @@
+create table Customers(
+CustomerId char(50),
+LastName char(50),
+FirstName char(50),
+Email char(50),
+Password char(50),
+PhoneNo char(50),
+City char(50),
+Province char(50),
+Country char(50),
+PostalCode char(50),
+primary key(CustomerId));
+
+create table Orders(
+OrderId char(50),
+CustomerId char(50),
+OrderDate char(50),
+ShipTo char(50),
+ShipEmail char(50),
+ShipPhoneNo char(50),
+ShipCity char(50),
+ShipProvince char(50),
+ShipCountry char(50),
+ShipPostalCode char(50),
+primary key(OrderId),
+foreign key (Customerid) references Customers(CustomerId));
+
+create table Categories(
+CategoryId char(50),
+CategoryName char(50),
+Description char(50),
+primary key(CategoryId));
+
+create table Products(
+ProductId char(50),
+ProductName char(50),
+CategoryId char(50),
+UnitPrice char(50),
+Image image,
+primary key(ProductId), 
+foreign key(UnitPrice) references Categories(Description));
+
+create table OrderDetails(
+OrderDetailsId char(50),
+OrderId char(50),
+Products char(50),
+Price char(50),
+Quantity char(50),
+primary key(OrderDetailsId),
+foreign key(OrderId) references Orders(OrderId));

@@ -1,0 +1,1 @@
+select empname,empsalary from employee where empsalary >(select AVG(empsalary) from employee)
